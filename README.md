@@ -8,12 +8,12 @@ Maggie Pettus - Giza-Deminuit - Timeline Creation and Management, Liking/Comment
 
 
 ## Languages & Techniques:
-Developed primarily using PHP with some Javascript<br>
-Styled using Bootstrap
+Developed primarily using PHP with the CodeIgniter4 framwork and Javascript<br>
+Styled using Bootstrap 5 with some jQuery for some of Bootstrap's components.
 
 
 ## Objective:
-Create a social media site where users can interact with friends and post about things.
+Create a social media site where users can interact with friends and post about memes.
 
 
 ## Description:
