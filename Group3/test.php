@@ -12,7 +12,7 @@ include("inc/menu.php");
      }
      /* Background of entire page */
      .back{ 
-        background:rgb(220,220,220);
+        background:rgb(40,40,40);
         display:flex;
      }
      /* Container for the posts */
@@ -25,7 +25,7 @@ include("inc/menu.php");
     /* All of the Posts */
      .post{
         width:600px;
-        background:rgb(224, 181, 181);
+        background-color: rgb(86,86,86)!important;
         border-radius:10px;
         padding:10px;
         margin:10px;
@@ -80,7 +80,7 @@ include("inc/menu.php");
              }
             /* Color of the Button Words */
              .post .bottom > .action{
-                color:rgb(0,0,0);
+                color:rgb(255,255,255);
              }
         /* Actual Posts */
          .post .top .info{
@@ -108,6 +108,15 @@ include("inc/menu.php");
             width:100%;
             margin:5px 0px;
          }
+         .txt {
+            color:rgb(255,255,255);
+         }
+         .name {
+            color:rgb(255,255,255);
+         }
+         .time {
+            color:rgb(255,255,255);
+         }
 </style>
 <div class="back"> 
     <!-- Posts on Home Page -->
@@ -118,7 +127,7 @@ include("inc/menu.php");
              <div class="top"> 
                 <!-- Profile Image on Create Post Popup -->
                  <div class="image"> 
-                    <!-- <img src="./images/girl.jpg" alt=""> -->
+                    <img src="./inc/profile_placeholder.jpg" alt="profile img" width="40" height="40">
                  </div>
                 <!-- Text Displayed in the Caption Box -->
                  <input type="text" placeholder="What meme are we feeling today?"/>
@@ -158,7 +167,7 @@ include("inc/menu.php");
             <!-- Actual Post -->
              <div class="content">
                 <!-- Caption -->
-                 Best Star War is.
+                 <p class="txt">Best Star War is.</p>
                 <!-- Post Image -->
                  <img src="StarWarsMeme.jpg"/>
              </div> 
@@ -202,7 +211,7 @@ include("inc/menu.php");
             <!-- Actual Post -->
              <div class="content">
                 <!-- Caption -->
-                 The similarities is uncanny.
+                 <p class="txt">The similarities is uncanny.</p>
                 <!-- Post Image -->
                  <img src="MarvelMeme.jpg"/>
              </div> 
