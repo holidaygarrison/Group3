@@ -117,6 +117,66 @@ include("inc/menu.php");
          .time {
             color:rgb(255,255,255);
          }
+         .popup-container {
+            
+         }
+         .pop-btn {
+            padding: 10px;
+            background: #fff;
+            border: 0;
+            outline: none;
+            cursor: pointer;
+            font-size: 22px;
+            font-weight: 500;
+            border-radius: 30px;
+         }
+         .popup {
+            width: 400px;
+            background: #fff;
+            border-radius: 6px;
+            position: absolute;
+            top:0%;
+            left: 50%;
+            transform: translate(-50%,-50%) scale(0.1);
+            text-align: center;
+            padding: 0 30px 30px;
+            color: #333;
+            visibility: hidden;
+            border: 12px solid #B22222;
+            border-radius: 10px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+         }
+         .open-popup{
+            visibility: visible;
+            top: 50%;
+            transform: translate(-50%,-50%) scale(1);
+         }
+         .popup h2{
+            font-size: 15px;
+            font-weight: 500;
+            margin: 30px 0 10px;
+            color: #fff;
+         }
+         .popup p {
+            font-size: 20px;
+            font-weight: 500;
+            margin: 30px 0 10px;
+            color: #fff;
+         }
+         .popup button{
+            width: 100%;
+            margin-top: 50px;
+            padding: 10px 0;
+            background: #9e0502;
+            color: #fff;
+            border: 0;
+            outline: none;
+            font-size: 18px;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+         }
 </style>
 <div class="back"> 
     <!-- Posts on Home Page -->
@@ -130,19 +190,34 @@ include("inc/menu.php");
                     <img src="./inc/profile_placeholder.jpg" alt="profile img" width="40" height="40">
                  </div>
                 <!-- Text Displayed in the Caption Box -->
-                 <input type="text" placeholder="What meme are we feeling today?"/>
+                 <!--<input type="text" placeholder="What meme are we feeling today?"/> -->
+                 <div class="popup-container">
+                  <button type="submit" class="pop-btn" onclick="openPopup()">What meme are we feeling today?</button>
+                  <div class="popup post create" id="popup">
+                     <h2>Create Post</h2>
+                     <p>What's on your mind?</p>
+                     <div class="btn">
+                        <form action="/action_page.php">
+                           <input type="text" id="textEnter" name="textEnter"><br>
+                           <input type="file" id="myFile" name="filename">
+                           <input type="submit">
+                        </form>   
+                     </div>
+                     <button type="button" onclick="closePopup()">Cancel</button>
+                  </div>
+                 </div>
              </div>
             <!-- Bottom of Post Box -->
              <div class="bottom">
                 <!-- Creating Button for Image Post Types -->
                  <div class="action">
                     <!--<i class="fa fa-image"></i>-->
-                    <span>Image</span>
+                    <!--<span>Image</span>-->
                  </div>
                 <!-- Creating Button for Gif Post Types -->
                  <div class="action">
                     <!-- <i class="fa fa-smile"></i> -->
-                    <span>Gif</span>
+                    <!--<span>Gif</span>-->
                  </div>
              </div>
          </div>
@@ -237,6 +312,16 @@ include("inc/menu.php");
      </div>
 </div>
 
+<script>
+   let popup = document.getElementById("popup");
+
+   function openPopup(){
+      popup.classList.add("open-popup");
+   }
+   function closePopup(){
+      popup.classList.remove("open-popup");
+   }
+</script>
 <?php
 include("inc/footer.php");
 ?>
