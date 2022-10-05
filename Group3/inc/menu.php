@@ -1,8 +1,3 @@
-<style>
-  .navbar {
-    background-color: rgb(86,86,86)!important;
-  }
-</style>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="">
