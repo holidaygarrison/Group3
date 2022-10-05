@@ -204,7 +204,7 @@ if(!$user)
 		  <input type="hidden" name="post" id="EditPostID" value="">
 		  <input type="hidden" name="delete" value="FALSE">
 		  <button class="btn btn-md" role="submit">Update</button>
-		  <button class="btn btn-md" role="submit" onclick="document.getElementById('EditModalContent').delete.value = 'TRUE'">Delete</button>
+		  <button class="btn btn-md float-end" id="DeletePostBtn" onclick="CheckPostDelete();">Delete</button>
 		</form>
 	      </div>
 	    </div>
@@ -335,6 +335,17 @@ function GetXttp()
 	return Xttp;
 }
 
+document.getElementById("DeletePostBtn").addEventListener("click", function(event){ if( CheckDelete() ){ event.preventDefault();} });
+function CheckDelete()
+{
+	if( confirm("Are you sure you want to delete this post?") ){
+		document.getElementById('EditModalContent').delete.value = 'TRUE';
+		return TRUE;
+	}else{
+		return FALSE;
+	}
+}
+
 function EditPost( postID ){
 	var modal = new bootstrap.Modal(document.getElementById("EditModal"));
 	modal.show();
@@ -405,15 +416,17 @@ function Share( postID ){
 }
 
 function DeleteComment( commID ){
-	const reqListener = response => {
-	        const content = document.getElementById("Comment"+commID);
-        	content.innerHTML = "<span class='m-3'>Comment Deleted!</span>";
-        };
+	if( confirm("Are you sure you want to delete this comment?") ){
+		const reqListener = response => {
+			const content = document.getElementById("Comment"+commID);
+			content.innerHTML = "<span class='m-3'>Comment Deleted!</span>";
+		};
 
-        const xttp = GetXttp();
-        xttp.onload = reqListener;
-        xttp.open("GET", "DeleteComment.php?comment="+commID, true);
-        xttp.send();
+		const xttp = GetXttp();
+		xttp.onload = reqListener;
+		xttp.open("GET", "DeleteComment.php?comment="+commID, true);
+		xttp.send();
+	}
 }
 
 </script>
