@@ -20,7 +20,7 @@ if(!$user)
      }
      /* Background of entire page */
      .back{ 
-        background:rgb(40,40,40);
+        background:rgb(243,235,230);
         display:flex;
      }
      /* Container for the posts */
@@ -33,7 +33,7 @@ if(!$user)
     /* All of the Posts */
      .post{
         width:600px;
-        background-color: rgb(86,86,86)!important;
+        background-color: rgb(249,179,127)!important;
         border-radius:10px;
         padding:10px;
         margin:10px;
@@ -88,7 +88,7 @@ if(!$user)
              }
             /* Color of the Button Words */
              .post .bottom > .action{
-                color:rgb(255,255,255);
+                color:rgb(60,60,60);
              }
         /* Actual Posts */
          .post .top .info{
@@ -97,10 +97,10 @@ if(!$user)
          }
          .post .top .info .name{
             cursor:pointer;
-            font-size:16px;
+            font-size:17px;
          }
          .post .top .info .time{
-            font-size:12px;
+            font-size:11px;
             cursor:pointer;
          }
          .post .top i{
@@ -117,13 +117,14 @@ if(!$user)
             margin:5px 0px;
          }
          .txt {
-            color:rgb(255,255,255);
+            color:rgb(60,60,60);
          }
          .name {
-            color:rgb(255,255,255);
+	    font: bold;
+            color:rgb(50,50,50);
          }
          .time {
-            color:rgb(255,255,255);
+            color:rgb(50,50,50);
          }
 </style>
 <div class="back"> 
@@ -146,7 +147,7 @@ if(!$user)
 		<div class="modal" tabindex="-1" id="PostModal">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
-		      <div class="modal-header">
+		      <div class="modal-header" style="background-color:rgb(255,243,207)">
 			<h5 class="modal-title">Create Post</h5>
 			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
 		      </div>
@@ -157,7 +158,7 @@ if(!$user)
 			  <input type="file" name="File" id="File" accept="image/png, image/jpeg">
 			  <input type="hidden" name="user" value="<?php echo $user; ?>">
 			  <Br>
-			  <button class="btn btn-md" role="submit">Post</button>
+			  <button class="btn btn-md" role="submit" style="background-color:rgb(240,230,205)">Post</button>
 			</form>
 		      </div>
 		    </div>
@@ -192,7 +193,7 @@ if(!$user)
 	<div class="modal" tabindex="-1" id="EditModal">
 	  <div class="modal-dialog">
 	    <div class="modal-content">
-	      <div class="modal-header">
+	      <div class="modal-header" style="background-color:rgb(255,243,207)">
 		<h5 class="modal-title">Edit Post</h5>
 		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label-"close"></button>
 	      </div>
@@ -203,8 +204,8 @@ if(!$user)
 		  <input type="hidden" name="user" value="<?php echo $user;?>">
 		  <input type="hidden" name="post" id="EditPostID" value="">
 		  <input type="hidden" name="delete" value="FALSE">
-		  <button class="btn btn-md" role="submit">Update</button>
-		  <button class="btn btn-md float-end" id="DeletePostBtn" onclick="CheckPostDelete();">Delete</button>
+		  <button class="btn btn-md" role="submit" style="background-color:rgb(240,230,205)">Update</button>
+		  <button class="btn btn-md float-end" id="DeletePostBtn" onclick="CheckPostDelete();" style="background-color:rgb(240,230,205)">Delete</button>
 		</form>
 	      </div>
 	    </div>
