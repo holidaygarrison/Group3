@@ -31,6 +31,7 @@
       </ul>
       <ul class="navbar-nav mb-2 mb-lg-0">
 	<li class="nav-item">
+	  <a class="nav-link" href="javascript:alert('click!');">Profile</a>
 	  <a class="nav-link" href="javascript:alert('click!');">Sign In</a>
 	</li>
       </ul>
