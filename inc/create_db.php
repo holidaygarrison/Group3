@@ -3,7 +3,7 @@
 
 $servername = "localhost";
 $username = "root";
-$password = "password";
+$password = "";
 $dbname = "memehub";
 
 $MHDB = new mysqli($servername, $username, $password, $dbname);
