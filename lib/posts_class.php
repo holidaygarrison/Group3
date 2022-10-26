@@ -107,6 +107,25 @@ class Posts
 		return $res;
 	}
 
+	static public function DeleteUsersPosts( $uname )
+	{
+		global $MHDB;
+                if(!$MHDB)
+                        return FALSE;
+
+		$posts = self::GetPostsFor($uname);
+		foreach( $posts as $post )
+		{
+			self::DeletePost($post['ID']);
+		}
+
+		$sql = "DELETE FROM comments WHERE User = '".$uname."'";
+		$MHDB->query($sql);
+
+		return TRUE;
+
+	}
+
 
 
 	static public function LikePost( $uname, $pid )
@@ -191,6 +210,21 @@ class Posts
 		$id = $MHDB->insert_id;
 
 		return $id;
+	}
+
+	static public function GetCommentInfo( $cid )
+	{
+		global $MHDB;
+		if(!$MHDB)
+			return FALSE;
+
+		if(!$cid)
+			return FALSE;
+
+		$sql = "SELECT * FROM comments WHERE ID = '".$cid."'";
+		$result = $MHDB->query($sql)->fetch_assoc();
+
+		return $result;
 	}
 
 	static public function DeleteComment( $cid )
