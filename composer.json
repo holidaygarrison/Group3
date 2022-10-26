@@ -1,0 +1,7 @@
+{
+    "name": "holidaygarrison/software_engineering",
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "require": {}
+}
