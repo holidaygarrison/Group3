@@ -6,12 +6,12 @@ body
 
 .logoFont
 {
-	font-family: "Lucida Console", monospace;
+	font-family: "American Typewriter", monospace;
 }
 
 h1, h2, h3, h4, h5
 {
-	font-family: "Lucida Handwriting", cursive;
+	font-family: "Times New Roman", cursive;
 }
 
 .red-bg

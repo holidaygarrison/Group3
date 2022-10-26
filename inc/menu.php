@@ -30,6 +30,7 @@
 -->
       </ul>
       <ul class="navbar-nav mb-2 mb-lg-0">
+      
 	<li class="nav-item dropdown">
 	  <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" araia-expanded="false">
 	    <?php echo $_COOKIE['user']; ?>
@@ -38,6 +39,7 @@
 	    <li><a class="dropdown-item" href="profile.php">Your Profile</a></li>
 	    <li><a class="dropdown-item" href="logout.php">Log Out</a></li>
 	  </ul>
+
 	</li>
 
       </ul>
