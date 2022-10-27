@@ -38,3 +38,15 @@ h1, h2, h3, h4, h5
 {
 	color: rgb(247,221,77)!important;
 }
+.post
+{
+	background: rgb(241,227,215);
+}
+.modal-header
+{
+	background:rgb(249,227,205);
+}
+.btn-md
+{
+	background:rgb(249,227,205);
+}
