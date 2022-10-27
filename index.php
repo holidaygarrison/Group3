@@ -196,7 +196,7 @@ if( isset( $_COOKIE['user'] ) ){
 			  <Br>
 			  <input type="hidden" name="user" value="<?php echo $user;?>">
 			  <input type="hidden" name="post" id="SharePostID" value="">
-			  <button class="btn btn-md" role="submit">Post</button>
+			  <button class="btn-md" role="submit">Post</button>
 			</form>
 		      </div>
 		    </div>
