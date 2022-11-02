@@ -46,7 +46,7 @@
   		background-color: #555555;
   		color: white;
 	}
-	input[type=text], input[type=password], select {
+	input, select {
 		width: 100%;
 		padding: 12px 20px;
 		display: inline-block;
@@ -75,27 +75,27 @@
 	<br>
 	<div>
 		First Name:
-		<input type="text" placeholder="First name" name="???" required>
+		<input type="text" placeholder="First name" name="FName" required>
 	</div>
 	<br>
 	<div>
 		Last Name:
-		<input type="text" placeholder="Last name" name="???" required>
+		<input type="text" placeholder="Last name" name="LName" required>
 	</div>
 	<br>
 	<div>
 		Gender:
-		<input type="text" placeholder="Preferred gender" name="???" required>
+		<input type="text" placeholder="Preferred gender" name="Gender" required>
 	</div>
 	<br>
 	<div>
 		Date of Birth:
-		<input type="text" placeholder="00/00/0000" name="???" required>
+		<input type="date" max="<?php echo date("Y-m-d"); ?>" name="Birthday" required>
 	</div>
 	<br>
 	<div>
 		Email:
-		<input type="text" placeholder="--------@email.com" name="???" required>
+		<input type="email" placeholder="--------@email.com" name="Email" required>
 	</div>
 	<br>
 	<div>

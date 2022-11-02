@@ -9,7 +9,10 @@ $PWD = $_POST['PWD'];
 
 if( Accounts::CheckPWD( $Username, $PWD ) )
 {
-	setcookie( 'user', $Username, time() + (86400 * 5), "/" );
+	session_start();
+	$_SESSION['sid']=session_id();
+	$_SESSION['user'] = $Username;
+
 
 	header("Location:./");
 	exit;

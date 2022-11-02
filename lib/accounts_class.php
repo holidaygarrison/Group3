@@ -1,7 +1,7 @@
 <?php
 class Accounts
 {
-	static public function CreateAccount( $uname, $pwd )
+	static public function CreateAccount( $uname, $pwd, $fname, $lname, $gen, $bday, $email )
 	{
 		global $MHDB;
 		if( !$MHDB )
@@ -10,7 +10,7 @@ class Accounts
 		if( !$uname || !$pwd )
 			return FALSE;
 
-		$sql = "INSERT INTO accounts (ID, Username, PWD) VALUES (NULL, '$uname', '$pwd');";
+		$sql = "INSERT INTO accounts (ID, Username, PWD, FName, LName, Gender, Birthday, Email) VALUES (NULL, '$uname', '$pwd', '$fname', '$lname', '$gen', '$bday', '$email');";
 		$MHDB->query($sql);
 
 		$id = $MHDB->insert_id;
@@ -28,6 +28,26 @@ class Accounts
 		$result = $MHDB->query($sql)->fetch_assoc();
 
 		return $result;
+	}
+
+	static public function EditAccount( $info )
+	{
+		global $MHDB;
+		if( !$MHDB )
+			return FALSE;
+
+		$sql = "UPDATE accounts SET ";
+		foreach( $info as $key => $data ){
+			if( !is_numeric($key) ){
+				$sql.= "$key = '$data', ";
+			}
+		}
+		$sql = substr( $sql, 0, -2 );
+		$sql .= " WHERE ID = '".$info['ID']."'";
+
+		$MHDB->query($sql);
+
+		return TRUE;
 	}
 
 	static public function GetAllAccounts()
