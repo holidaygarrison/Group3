@@ -1,40 +1,283 @@
+/* Entire page */
+* { 
+	margin:0;
+	padding:0px;
+	box-sizing: border-box;
+	font-family: "American Typewriter";
+	font-size: 1.10rem; /**/
+ }
+/* All headers */
+ h1, h2, h3, h4, h5 {
+	font-family: "Times New Roman", cursive;
+ }
 
-body
-{
-	background-color: #ccc;
-}
+/* createAccount.php */
+	.logoCreateFont {
+		font-family: "American Typewriter", monospace;
+		font-size: 25px;
+		margin: 0;
+		padding: -20;
+	}
+	.flex-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		background-color: FloralWhite ;
+		width: 25%;
+		height: 80%;
+		margin: auto;
+		border: 5px solid black;
+		border-radius: 15px;
+		box-shadow: 5px 10px;
+	}
+	.flex-container img {
+		max-height: 60px;
+	}
+	.flex-container > div {
+	margin: 0px;
+	padding: 10px;
+	font-size: 18px;
+	}
+	.Btn {
+		background-color: white;
+		border: 2px solid #555555;
+		color: black;
+		padding: 16px 32px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		margin: 4px 2px;
+		transition-duration: 0.4s;
+		cursor: pointer;
+	}
+	.Btn:hover {
+  		background-color: #555555;
+  		color: white;
+	}
+	input[type=text], input[type=password], select {
+		width: 100%;
+		padding: 12px 20px;
+		display: inline-block;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		box-sizing: border-box;
+	}
 
-.logoFont
-{
-	font-family: "Lucida Console", monospace;
-}
+/* menu.php */
+	/* Image of the logo at top left */
+	 .logoImage {
+		max-height: 40px;
+	 }
+	/* Title beside the logo in the top left */
+	 .logoFont {
+		font-family: "American Typewriter", monospace;
+	 }
+	/* Home and Find Friends button in navigation bar */
+	 .navbar-nav {
+		padding-right: 80px;
+	 }
+	/* User name button in navigation bar */
+	 .nav-item {
+		padding-left: 20px;
+	 }
+/* index.php */
+	/* Background of entire page */
+	 .back { 
+		display:flex;
+		background: rgb(118, 209, 236);
+	 }
+	/* Container for the posts */
+	 .container {
+        flex:1;
+        display:flex;
+        flex-direction: column;
+        align-items:center;
+     }
+	/* All of the Posts */
+	 .post {
+		width:600px;
+		border-radius:10px;
+		padding:10px;
+		margin:10px;
+		background:rgb(248, 234, 220);
+	 }
+	/* Header of all posts */
+	 .modal-header {
+		background:rgb(248, 234, 220);
+	 }
+	/* Buttons of each post */
+	 .btn-md {
+		background:rgb(248, 234, 220);
+	 }
+	/* Top of the Post */
+		/* Centers the image and textbox */
+		 .post .top {
+			display:flex;
+			align-items:center;
+			padding:10px;
+		 }
+		/* Cuts the profile image */
+		 .post .top .image {
+			width:40px;
+			height:40px;
+			border-radius:50%;
+			overflow:hidden;
+		 }
+		 .post .top .image > img {
+			width:100%;
+			cursor:pointer;
+		 }
+		/* Sizes the textbox */
+		 .post .top > input {
+			height:40px;
+			padding:10px 15px;
+			border-radius:25px;
+			outline:none;
+			border:none;
+			flex:1;
+			margin-left:30px;
+		 }
+	/* Bottom of the post */  
+		/* Entire bottom */
+		 .post .bottom {
+			box-shadow:1px solid #ddd;
+			display:flex;
+			justify-content:space-between;
+			padding:0px 60px 0px 60px;
+			font-size:20px;
+		 }
+		/* Boxes around each button */
+		 .post .bottom .action {
+			padding:10px;
+			border-radius:40px;
+			transition:.3s ease-in;
+			cursor:pointer;
+		 }
+		 .post .bottom .action:hover {
+			background:#eee;
+		 } 
+		/* Color of the button words */
+		 .post .bottom > .action {
+			color:rgb(0,0,0);
+		 }
+	/* Actual Posts */
+	 .post .top .info {
+		margin-left:10px;    
+		font-weight: bold;
+	 }
+	 .post .top .info .name {
+		cursor:pointer;
+		font-size:16px;
+	 }
+	 .post .top .info .time {
+		font-size:12px;
+		cursor:pointer;
+	 }
+	 .post .top i {
+		margin-left:auto;
+		cursor: pointer;
+	 }
+	 .post .content {
+		font-size:16px;
+		font-weight:normal;
+		padding:10px;
+	 } 
+	 .post .content > img {
+		width:100%;
+		margin:5px 0px;
+	 }
+	 .txt {
+		color:rgb(58, 53, 53);
+	 }
+	 .name {
+		color:rgb(58, 53, 53);
+	 }
+	 .time {
+		color:rgb(58, 53, 53);
+	 }
+	/* Share post popup size */
+	.w-100 {
+		height:3px;
+	}
 
-h1, h2, h3, h4, h5
-{
-	font-family: "Lucida Handwriting", cursive;
-}
+/* login.php */
+	/* Background */
+	.main-body {
+	   	padding:15px;
+	   	margin-top:20px;
+	   	color: #1a202c;
+		text-align: center;
+		background-color: #ccc;  
+	}
+	/* Login to your account Header */
+	.login-h1 {
+	   font-size: 1.25rem;
+	   padding-top: 60px;
+	   padding-bottom: 15px;
+	}
+	/* Logo */
+	logoFont {
+	   font-family: "American Typewriter", monospace;
+	   font-size: 1.5rem;
+	}
+	/* Login Card */
+	.login-card {
+	   margin: 25px auto;
+	   padding: 30px;
+	   border: 5px solid #ccc;
+	   border-radius:25px;
+	   width: 500px;
+	   height: 520px;
+	   background: rgb(224, 181, 181);
+	}
+	/* Memehub Logo */
+	.login-card .image > img {
+		width: 175px;
+		margin: 10px;
+		cursor: pointer;
+	}
+	/* Username and Password Input */
+	input {
+	   border: 2px solid #ccc;
+	   font-weight: 100;
+	   padding: 20px;
+	   height:40px;
+	   margin: 5px;
+	   border-radius:25px;
+	   border: 2px solid #ccc;
+	   background:#eee;          
+	}
+	/* Submit Button */
+	.btn-md {
+	   margin: 15px auto;
+	   padding: 10px;
+	   font-size: 1.0rem;
+	   background: #eee;
+	   color: black;
+	   border: 2px solid #ccc;
+	   border-radius: 25px;
+	}
 
-.red-bg
-{
-	background-color: rgb(255,0,0)!important;
-}
-
-.yellow-bg
-{
-	background-color: rgb(247,221,77)!important;
-}
-
-.white-bg
-{
-	background-color: #eee;
-}
-
-.red-txt
-{
-	color: rgb(255,0,0)!important;
-}
-
-.yellow-txt
-{
-	color: rgb(247,221,77)!important;
-}
+/* profile.php */
+	.main-body {
+		padding: 15px;
+		background: rgb(118, 209, 236);
+	}
+	/* About me card */
+	 .card {
+		box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		min-width: 0;
+		word-wrap: break-word;
+		background:rgb(248, 234, 220);
+		background-clip: border-box;
+		border: 0 solid rgba(0,0,0,.125);
+		border-radius: .25rem;
+		flex: 1 1 auto;
+		min-height: 1px;
+		padding: 1rem;
+	 }
