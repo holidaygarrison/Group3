@@ -11,6 +11,9 @@ class Posts
 		if( !$msg && !$img )
 			return FALSE;
 
+		$msg = htmlspecialchars($msg);
+
+
 		$sql = "INSERT INTO posts (ID, Date, User, Msg, Img) VALUES (NULL, '".date("Y-m-d")."', '$uid', ".($msg ? "'$msg'" : "NULL").", ".($img ? "'$img'" : "NULL").");";
 		$MHDB->query($sql);
 
@@ -27,6 +30,8 @@ class Posts
 
 		if( !$msg && !$img )
 			return FALSE;
+
+		$msg - htmlspecialchars($msg);
 
 		$sql = "UPDATE posts SET ".($msg ? "Msg = '".$msg."'" : "").
 			($msg && $img ? ", " : "").
@@ -189,6 +194,8 @@ class Posts
 		if( !$uname || !$pid )
 			return FALSE;
 
+		$msg = htmlspecialchars($msg);
+
 		$sql = "INSERT INTO posts (ID, Date, User, Msg, Img, Share) VALUES (NULL, '".date("Y-m-d")."', '$uname', ".($msg ? "'$msg'" : "NULL").", NULL, '$pid')";
 		$MHDB->query($sql);
 		$id = $MHDB->insert_id;
@@ -204,6 +211,8 @@ class Posts
 
 		if( !$uname || !$pid || !$msg )
 			return FALSE;
+
+		$msg = htmlspecialchars($msg);
 
 		$sql = "INSERT INTO comments (ID, Date, User, Post, Msg) VALUES (NULL, '".date("Y-m-d")."', '$uname', '$pid', '$msg')";
 		$MHDB->query($sql);
