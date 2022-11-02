@@ -45,7 +45,7 @@ logoFont {
    height: 520px;
    background: rgb(224, 181, 181);
 }
-   /* Logo Image */
+   /* Memehub Logo */
    .card .image > img{
       width: 175px;
       margin: 10px;

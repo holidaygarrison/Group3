@@ -32,7 +32,7 @@
       <ul class="navbar-nav mb-2 mb-lg-0">
       
 	<li class="nav-item dropdown">
-	  <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" araia-expanded="false">
+	  <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" araia-expanded="false" style="padding-right: 100px">
 	    <?php echo $_COOKIE['user']; ?>
 	  </a>
 	  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
