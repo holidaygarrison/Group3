@@ -1,105 +1,93 @@
-<doctype html>
 <html>
-	<head>
-		<title>Login Page </title>
-<style>
+<head>
+	<style>
+	body {
+		background-color: #ffeecc;
+	}
+	.logoFont {
+		font-family: "American Typewriter", monospace;
+		font-size: 25px;
+		margin: 0;
+		padding: -20;
+	}
+	.flex-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: FloralWhite ;
+	width: 25%;
+	height: 80%;
+	margin: auto;
+	border: 5px solid black;
+  	border-radius: 15px;
+	box-shadow: 5px 10px;
+	}
 
-/* Entire Page */
-*{
-    margin:0;
-    padding:0px;
-    box-sizing: border-box;
-    font-family: "american typewriter";
-    font-size: 1.10rem;
-}
-
-/* Background */
-body{
-//  margin-top:20px;
-    color: #1a202c;
-    text-align: center;
-    background-color: #ccc;    
-}
-.main-body {
-   padding:15px;
-}
-
-h1 {
-   font-size: 1.25rem;
-   padding-top: 60px;
-   padding-bottom: 15px;
-}
-
-logoFont {
-   font-family: "American Typewriter", monospace;
-   font-size: 1.5rem;
-}
-
-/* Login Card */
-.card {
-   margin: 25px auto;
-   padding: 30px;
-   border: 5px solid #ccc;
-   border-radius:25px;
-   width: 500px;
-   height: 520px;
-   background: rgb(224, 181, 181);
-}
-   /* Memehub Logo */
-   .card .image > img{
-      width: 175px;
-      margin: 10px;
-      cursor: pointer;
-   }
-
-/* Username and Password Input */
-input {
-   border: 2px solid #ccc;
-   font-weight: 100;
-   padding: 20px;
-   height:40px;
-   margin: 5px;
-   border-radius:25px;
-   border: 2px solid #ccc;
-   background:#eee;          
-}
-
-/* Submit Button */
-button {
-   margin: 15px auto;
-   padding: 10px;
-   font-size: 1.0rem;
-   background: #eee;
-   color: black;
-   border: 2px solid #ccc;
-   border-radius: 25px;
-}
-
-</style>
+	.flex-container > div {
+	margin: 0px;
+	padding: 10px;
+	font-size: 18px;
+	}
+	.Btn {
+		background-color: white;
+		border: 2px solid #555555;
+		color: black;
+		padding: 16px 32px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		margin: 4px 2px;
+		transition-duration: 0.4s;
+		cursor: pointer;
+	}
+	.Btn:hover {
+  		background-color: #555555;
+  		color: white;
+	}
+	input[type=text], input[type=password], select {
+		width: 100%;
+		padding: 12px 20px;
+		display: inline-block;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		box-sizing: border-box;
+	}
+	</style>
 </head>
 <body>
 
-<div class = "container">
-   <div class = "main-body">
-      <div class = "card">
-         <div class = "image">
-            <img src = "inc/Logo.png" class = "rounded-circle">
-         </div>           
-         <logoFont> Memehub </logoFont>
-         <h1>Login to your account</h1>
-         <form name="Frm" action="loginPro.php" method = "post">
-	         Username:
-            <input type="text" name="Username" required>
-         <br>
-	         Password:
-            <input type="password" name="PWD" required>
-         <br>
-            <button class = "btn-md" role="submit">Submit</button>
-         </form>
-         <p class = "small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href = "#!">
-            <a href="createAccount.php">Create an Account</a>   
-		</div>
+<br>
+<br>
+<br>
+<div class="flex-container">
+	<img src="inc/Logo.png" alt="MemeHub" style="max-height:60px">
+	<p class="logoFont">memehub</p>
+	<h1>Login</h1>
+
+	<div>
+	<form name="Frm" action="loginPro.php" method = "post">
+		Username:
+		<input type="text" placeholder="Enter Username" name="Username" required>
+	</div>
+	<br>
+	<div>
+		Password:
+		<input type="password" placeholder="Enter Password" name="PWD" required>
+	</div>
+	<br>
+	<div>
+		<button class="Btn" role="submit">Submit</button>
+	</form>
+	</div>
+
+	<div>
+	<a href="createAccount.php">Don't Have an Account?</a>
 	</div>
 </div>
+
+
+
 </body>
 </html>

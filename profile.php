@@ -2,15 +2,17 @@
 include("inc/create_db.php");
 include("lib/posts_class.php");
 include("lib/accounts_class.php");
+include("lib/friends_class.php");
 
 include("inc/header.php");
 include("inc/menu.php");
 
-if( isset($_COOKIE['user']) )
+if( isset($_SESSION['user']) )
 {
-	$user = $_COOKIE['user'];
+	$user = $_SESSION['user'];
 } else{
-	$user = "";
+	header("Location:login.php");
+	exit;
 }
 
 if( isset($_GET['d']) )
@@ -22,7 +24,8 @@ if( isset($_GET['d']) )
 
 $profile = Accounts::GetAccountInfo($pro);
 $posts = Posts::GetPostsFor($pro);
-array_multisort( array_column($posts, "ID"), SORT_DESC, $posts );
+if( $posts )
+	array_multisort( array_column($posts, "ID"), SORT_DESC, $posts );
 
 if( !$profile ){
 	echo "<script>\n".
@@ -193,8 +196,35 @@ body{
 		      <h4><?php echo $profile['Username']; ?></h4>
 		      <?php
 			if( $pro != $user ){
-				
-				echo "<button class=\"btn btn-primary btn btn-dark\">Add Friend</button>\n";
+				// check request
+				$request = Friends::CheckRequest( $user, $pro );
+				if( $request == 1 ){
+					// user has sent pro a request already
+					echo "<button class=\"btn btn-primary btn-dark btn-disabled\" disabled>Request Sent</button>";
+
+				} elseif( $request == 2 ){
+					// pro has sent user a request already
+					echo "<form name='AccptFrm' action='FriendAcceptPro.php' method='post'>\n".
+					     "  <input type='hidden' name='User1' value='".$user."'>\n".
+					     "  <input type='hidden' name='User2' value='".$pro."'>\n".
+					     "  <button class=\"btn btn-primary btn-dark\">Accept Request</button>\n".
+					     "</form>\n";
+
+				} elseif( array_search( $user, explode(",", $profile['Friends']) ) === FALSE ){
+					echo "<form name='SubFrm' action='FriendRequestPro.php' method='post'>\n".
+					     "  <input type='hidden' name='Requestor' value='".$user."'>\n".
+					     "  <input type='hidden' name='Requestee' value='".$pro."'>\n".
+					     "  <button class=\"btn btn-primary btn btn-dark\" >Add Friend</button>\n".
+					     "</form>\n";
+				} else{
+					echo "<form name='RemFrm' action='RemoveFriendPro.php' method='post'>\n".
+					     "  <input type='hidden' name='User1' value='".$user."'>\n".
+					     "  <input type='hidden' name='User2' value='".$pro."'>\n".
+					     "  <button class=\"btn btn-primary btn-dark\" id='RemoveFriend'>".
+					     "    Remove Friend".
+					     "  </button>\n".
+					     "</form>\n";
+				}
 			}
 		      ?>
                     </div>
@@ -203,20 +233,22 @@ body{
               </div>
               <div class="card mt-3">
                 <ul class="list-group list-group-flush">
-<!--
 		    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                         <h6>Name</h6>
-                        <span class = "text-secondary">My Name</span>
+			<span class = "text-secondary"><?php echo $profile['FName']." ".$profile['LName']; ?></span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                         <h6>Birthday</h6>
-                        <span class = "text-secondary">00/00/00</span>
+			<span class = "text-secondary"><?php echo date("M d, Y", strtotime($profile['Birthday'])); ?></span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                        <h6>About Me</h6>
-                        <span class = "text-secondary">sjdj djdjd hlagh fhd fdh fjdsj</span>
-		    </li>
--->
+                        <h6>Gender</h6>
+			<span class = "text-secondary"><?php echo $profile['Gender']; ?></span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                        <h6>Email</h6>
+			<span class = "text-secondary"><?php echo $profile['Email']; ?></span>
+                    </li>
                      <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                         <h6>Total Meme Count</h6>
 			<span class = "text-secondary"><?php echo count($posts); ?></span>

@@ -16,8 +16,8 @@
 	justify-content: center;
 	align-items: center;
 	background-color: FloralWhite ;
-	width: 25%;
-	height: 80%;
+	width: 450px;
+	height: 900px;
 	margin: auto;
 	border: 5px solid black;
   	border-radius: 15px;
@@ -46,7 +46,7 @@
   		background-color: #555555;
   		color: white;
 	}
-	input[type=text], input[type=password], select {
+	input, select {
 		width: 100%;
 		padding: 12px 20px;
 		display: inline-block;
@@ -68,8 +68,34 @@
 
 	<div>
 	<form name="Frm" action="createAccountPro.php" method = "post">
+	<div>
 		Username:
 		<input type="text" placeholder="Enter Username" name="Username" required>
+	</div>
+	<br>
+	<div>
+		First Name:
+		<input type="text" placeholder="First name" name="FName" required>
+	</div>
+	<br>
+	<div>
+		Last Name:
+		<input type="text" placeholder="Last name" name="LName" required>
+	</div>
+	<br>
+	<div>
+		Gender:
+		<input type="text" placeholder="Preferred gender" name="Gender" required>
+	</div>
+	<br>
+	<div>
+		Date of Birth:
+		<input type="date" max="<?php echo date("Y-m-d"); ?>" name="Birthday" required>
+	</div>
+	<br>
+	<div>
+		Email:
+		<input type="email" placeholder="--------@email.com" name="Email" required>
 	</div>
 	<br>
 	<div>
@@ -79,8 +105,8 @@
 	<br>
 	<div>
 		<button class="Btn" role="submit">Submit</button>
-	</form>
 	</div>
+	</form>
 
 	<div>
 	<a href="login.php">Already have an Account?</a>

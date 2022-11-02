@@ -2,18 +2,13 @@
 include("inc/create_db.php");
 include("lib/posts_class.php");
 include("lib/accounts_class.php");
+include("lib/friends_class.php");
 
 include("inc/header.php");
 include("inc/menu.php");
 
-$user = @$_GET['user'];
-if(!$user)
-	$user = "default";
-
-
-
-if( isset( $_COOKIE['user'] ) ){
-	$user = $_COOKIE['user'];
+if( isset( $_SESSION['user'] ) ){
+	$user = $_SESSION['user'];
 	$userinfo = Accounts::GetAccountInfo($user);
 } else{
 	header("Location:login.php");
@@ -196,7 +191,7 @@ if( isset( $_COOKIE['user'] ) ){
 			  <Br>
 			  <input type="hidden" name="user" value="<?php echo $user;?>">
 			  <input type="hidden" name="post" id="SharePostID" value="">
-			  <button class="btn-md" role="submit">Post</button>
+			  <button class="btn btn-md" role="submit">Post</button>
 			</form>
 		      </div>
 		    </div>
