@@ -16,8 +16,8 @@
 	justify-content: center;
 	align-items: center;
 	background-color: FloralWhite ;
-	width: 25%;
-	height: 80%;
+	width: 450px;
+	height: 900px;
 	margin: auto;
 	border: 5px solid black;
   	border-radius: 15px;
@@ -68,8 +68,34 @@
 
 	<div>
 	<form name="Frm" action="createAccountPro.php" method = "post">
+	<div>
 		Username:
 		<input type="text" placeholder="Enter Username" name="Username" required>
+	</div>
+	<br>
+	<div>
+		First Name:
+		<input type="text" placeholder="First name" name="???" required>
+	</div>
+	<br>
+	<div>
+		Last Name:
+		<input type="text" placeholder="Last name" name="???" required>
+	</div>
+	<br>
+	<div>
+		Gender:
+		<input type="text" placeholder="Preferred gender" name="???" required>
+	</div>
+	<br>
+	<div>
+		Date of Birth:
+		<input type="text" placeholder="00/00/0000" name="???" required>
+	</div>
+	<br>
+	<div>
+		Email:
+		<input type="text" placeholder="--------@email.com" name="???" required>
 	</div>
 	<br>
 	<div>
@@ -79,8 +105,8 @@
 	<br>
 	<div>
 		<button class="Btn" role="submit">Submit</button>
-	</form>
 	</div>
+	</form>
 
 	<div>
 	<a href="login.php">Already have an Account?</a>
