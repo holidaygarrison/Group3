@@ -45,8 +45,8 @@ if( !$profile ){
 <body>
 
 <!-- Profile Picture / Username / Add Friend / About Me Container-->
-<div class="container">
-    <div class="main-body">
+<div class="back">
+    <div class="main-body m-auto">
           <div class="row gutters-sm">
             <div class="col-md-4 mb-3">
               <div class="card">
@@ -86,6 +86,8 @@ if( !$profile ){
 					     "  </button>\n".
 					     "</form>\n";
 				}
+			} else{
+				echo "<button class=\"btn btn-primary btn-dark\" data-bs-toggle='modal' data-bs-target='#EditProfile' type='button'>Edit Profile</button>";
 			}
 		      ?>
                     </div>
@@ -134,7 +136,10 @@ if( !$profile ){
                     </li>
                 </ul>
               </div>
-            </div>
+	    </div>
+
+
+
             <!-- Post Container -->
 	    <div class="col-md-8">
 <!--
@@ -201,9 +206,62 @@ if( !$profile ){
 		  </div>
 		</div>
 
+<!-- Edit Profile Details Modal -->	
+			<div class="modal" tabindex="-1" id="EditProfile">
+			  <div class="modal-dialog">
+			    <div class="modal-content">
+			      <div class="modal-header">
+				<h5 class="modal-title">Update Info</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+			      </div>
+			      <div class="modal-body">
+				  <form name="Frm" action="EditProfilePro.php" method = "post">
+					<div>
+						First Name:
+						<input type="text" name="FName" value="<?php echo $profile['FName']; ?>" required>
+					</div>
+					<br>
+					<div>
+						Last Name:
+						<input type="text" name="LName" value="<?php echo $profile['LName']; ?>" required>
+					</div>
+					<br>
+					<div>
+						Gender:
+<input type="text" name="Gender" value="<?php echo $profile['Gender']; ?>" required>
+					</div>
+					<br>
+					<div>
+						Date of Birth:
+						<input type="date" max="<?php echo date("Y-m-d"); ?>" name="Birthday" value="<?php echo $profile['Birthday']; ?>" required>
+					</div>
+					<br>
+					<div>
+						Email:
+<input type="email" name="Email" value="<?php echo $profile['Email']; ?>" required>
+					</div>
+					<br>
+					<div>
+						<input type='hidden' name='ID' value="<?php echo $profile['ID']; ?>">
+						<button role="submit" class="btn btn-md">Save Changes</button>
+					</div>
+					</form>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+
+
 
 	    <!-- Posts -->
-	<?php
+<?php
+    if( !$posts ){
+	echo "<div class='post'>\n".
+	      "  <div class='content'>\n".
+	      "    no posts yet :/ \n".
+	      "  </div>\n".
+	      "</div>\n";
+    } else{
 	foreach($posts as $post){
               echo "<div class='post'>\n".
                    "  <div class='top'>\n".
@@ -302,7 +360,7 @@ if( !$profile ){
 	      echo "  </div>\n".
 		   "</div>\n";
 	   }
-
+	}
 
 	?>
 
