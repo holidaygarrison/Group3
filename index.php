@@ -20,7 +20,7 @@ if( isset( $_SESSION['user'] ) ){
 
 	<div class="back"> 
 	    <!-- Posts on Home Page -->
-	     <div class="container"> 
+	     <div class="icontainer"> 
 		<!-- Create Post Popup -->
 		 <div class="post create"> 
 		    <!-- Top of Post Box -->
@@ -69,7 +69,7 @@ if( isset( $_SESSION['user'] ) ){
 		      <div class="modal-body">
 			<form name="Frm" action="SharePostPro.php" method="post">
 			  <textarea name="Message" class="form-control mb-3" placeholder="Got anything to add?"></textarea>
-			  <div class="w-100 white-bg" style="height:3px"></div>
+			  <div class="w-100_white-bg" ></div> 
 			  <div class="w-100" id="ShareModalContent"></div>
 			  <Br>
 			  <input type="hidden" name="user" value="<?php echo $user;?>">

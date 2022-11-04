@@ -1,11 +1,11 @@
 <?php
-include("inc/create_db.php");
-include("lib/posts_class.php");
-include("lib/accounts_class.php");
-include("lib/friends_class.php");
+	include("inc/create_db.php");
+	include("lib/posts_class.php");
+	include("lib/accounts_class.php");
+	include("lib/friends_class.php");
 
-include("inc/header.php");
-include("inc/menu.php");
+	include("inc/header.php");
+	include("inc/menu.php");
 
 if( isset($_SESSION['user']) )
 {
@@ -372,111 +372,117 @@ if( !$profile ){
 include("inc/footer.php");
 ?>
 	<script>
-	function GetXttp()
-	{
-		var Xttp = null;
-		if (window.XMLHttpRequest)
-		{
-			Xttp=new XMLHttpRequest();
-		}else
-		{
-			Xttp=new ActivateXObject("Microsoft.XMLHTTP");
-		}
-		return Xttp;
-	}
+					function GetXttp()
+					{
+						var Xttp = null;
+						if (window.XMLHttpRequest)
+						{
+							Xttp=new XMLHttpRequest();
+						}else
+						{
+							Xttp=new ActivateXObject("Microsoft.XMLHTTP");
+						}
+						return Xttp;
+					}
 
-	document.getElementById("DeletePostBtn").addEventListener("click", function(event){ if( CheckDelete() ){ event.preventDefault();} });
-	function CheckDelete()
-	{
-		if( confirm("Are you sure you want to delete this post?") ){
-			document.getElementById('EditModalContent').delete.value = 'TRUE';
-			return TRUE;
-		}else{
-			return FALSE;
-		}
-	}
+					document.getElementById("DeletePostBtn").addEventListener("click", function(event){ if( CheckDelete() ){ event.preventDefault();} });
+					function CheckDelete()
+					{
+						if( confirm("Are you sure you want to delete this post?") ){
+							document.getElementById('EditModalContent').delete.value = 'TRUE';
+							return TRUE;
+						}else{
+							return FALSE;
+						}
+					}
 
-	function EditPost( postID ){
-		var modal = new bootstrap.Modal(document.getElementById("EditModal"));
-		modal.show();
+					function EditPost( postID )
+					{
+						var modal = new bootstrap.Modal(document.getElementById("EditModal"));
+						modal.show();
 
-		document.getElementById("EditPostID").value = postID;
+						document.getElementById("EditPostID").value = postID;
 
-		const reqListener = response => {
-		   var content = response.currentTarget.response;
-		   content = content.split("-;;-");
+						const reqListener = response => {
+						var content = response.currentTarget.response;
+						content = content.split("-;;-");
 
-		   document.getElementById("EditModalContent").Message.innerHTML = content[0];
-		   if( content[1] )
-		      document.getElementById("EditImg").innerHTML = "<img src='img/"+content[1]+"' alt='img'>";
-		   else
-		      document.getElementById("EditImg").innerHTML = "";
-		};
+						document.getElementById("EditModalContent").Message.innerHTML = content[0];
+						if( content[1] )
+							document.getElementById("EditImg").innerHTML = "<img src='img/"+content[1]+"' alt='img'>";
+						else
+							document.getElementById("EditImg").innerHTML = "";
+						};
 
-		const xttp = GetXttp();
-		xttp.onload = reqListener;
-		xttp.open("GET", "SetEdit.php?post="+postID, true);
-		xttp.send();
-	}
+						const xttp = GetXttp();
+						xttp.onload = reqListener;
+						xttp.open("GET", "SetEdit.php?post="+postID, true);
+						xttp.send();
+					}
 
+					function Like( postID )
+					{
+						const reqListener = response => {
+							const content = document.getElementById("Likes"+postID);
+							content.innerHTML = response.currentTarget.response.split(",").length;
+						};
 
-	function Like( postID ){
+						const xttp = GetXttp();
+						xttp.onload = reqListener;
+						xttp.open("GET", "Like.php?post="+postID+"&user=<?php echo $user; ?>", true);
+						xttp.send();
+					}
 
-		const reqListener = response => {
-			const content = document.getElementById("Likes"+postID);
-			content.innerHTML = response.currentTarget.response.split(",").length;
-		};
+					function Dislike( postID )
+					{
 
-		const xttp = GetXttp();
-		xttp.onload = reqListener;
-		xttp.open("GET", "Like.php?post="+postID+"&user=<?php echo $user; ?>", true);
-		xttp.send();
-	}
+						const reqListener = response => {
+							const content = document.getElementById("Dislikes"+postID);
+							content.innerHTML = response.currentTarget.response.split(",").length;
+						};
 
-	function Dislike( postID ){
+						const xttp = GetXttp();
+						xttp.onload = reqListener;
+						xttp.open("GET", "Dislike.php?post="+postID+"&user=<?php echo $user; ?>", true);
+						xttp.send();
 
-		const reqListener = response => {
-			const content = document.getElementById("Dislikes"+postID);
-			content.innerHTML = response.currentTarget.response.split(",").length;
-		};
+					}
 
-		const xttp = GetXttp();
-		xttp.onload = reqListener;
-		xttp.open("GET", "Dislike.php?post="+postID+"&user=<?php echo $user; ?>", true);
-		xttp.send();
+					function Share( postID )
+					{
+						var modal = new bootstrap.Modal(document.getElementById("ShareModal"));
+						modal.show();
 
-	}
+						document.getElementById("SharePostID").value = postID;
 
-	function Share( postID ){
-		var modal = new bootstrap.Modal(document.getElementById("ShareModal"));
-		modal.show();
+						const reqListener = response => {
+							const content = document.getElementById("ShareModalContent");
+							content.innerHTML = response.currentTarget.response;
+						};
 
-		document.getElementById("SharePostID").value = postID;
+						const xttp = GetXttp();
+						xttp.onload = reqListener;
+						xttp.open("GET", "SetShare.php?post="+postID, true);
+						xttp.send();
+					}
 
-		const reqListener = response => {
-			const content = document.getElementById("ShareModalContent");
-			content.innerHTML = response.currentTarget.response;
-		};
+					function DeleteComment( commID )
+					{
+						if( confirm("Are you sure you want to delete this comment?") ){
+						const reqListener = response => {
+							const content = document.getElementById("Comment"+commID);
+							content.innerHTML = "<span class='m-3'>Comment Deleted!</span>";
+						};
 
-		const xttp = GetXttp();
-		xttp.onload = reqListener;
-		xttp.open("GET", "SetShare.php?post="+postID, true);
-	xttp.send();
-
-}
-
-function DeleteComment( commID ){
-	if( confirm("Are you sure you want to delete this comment?") ){
-		const reqListener = response => {
-			const content = document.getElementById("Comment"+commID);
-			content.innerHTML = "<span class='m-3'>Comment Deleted!</span>";
-		};
-
-		const xttp = GetXttp();
-		xttp.onload = reqListener;
-		xttp.open("GET", "DeleteComment.php?comment="+commID, true);
-		xttp.send();
-	}
-}
-
-</script>
+						const xttp = GetXttp();
+						xttp.onload = reqListener;
+						xttp.open("GET", "DeleteComment.php?comment="+commID, true);
+						xttp.send();
+						}
+					}
+				</script>
+			</div>
+		</div>
+	</body>
+</html>
+			
