@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="">
-      <img src="inc/Logo.png" alt="MemeHub" style="max-height:40px">
+      <img src="inc/Logo.png" alt="MemeHub"> 
       <span class="logoFont">memehub</span>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
