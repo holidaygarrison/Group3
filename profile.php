@@ -131,6 +131,68 @@
 								</li>
 							</ul>
 						</div>
+						<!-- Edit Profile Details Selection -->
+			<div class="card mt-3">
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+							<!-- Edit Profile Details Modal Trigger -->
+			<button type="button" class="ms-3 btn btn-lg btn-light" data-bs-toggle="modal" data-bs-target="#PostModal">
+			  <h5 class="my-2">Edit Profile Details</h5>
+			</button>
+
+			<!-- Edit Profile Details Modal -->	
+			<div class="modal" tabindex="-1" id="PostModal">
+			  <div class="modal-dialog">
+			    <div class="modal-content">
+			      <div class="modal-header">
+				<h5 class="modal-title">Update Info</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+			      </div>
+			      <div class="modal-body">
+				  <form name="Frm" action="EditAccountDetails.php" method = "post">
+					<div>
+						Username:
+						<input type="text" placeholder="Enter Username" name="Username" required>
+					</div>
+					<br>
+					<div>
+						First Name:
+						<input type="text" placeholder="First name" name="FName" required>
+					</div>
+					<br>
+					<div>
+						Last Name:
+						<input type="text" placeholder="Last name" name="LName" required>
+					</div>
+					<br>
+					<div>
+						Gender:
+						<input type="text" placeholder="Preferred gender" name="Gender" required>
+					</div>
+					<br>
+					<div>
+						Date of Birth:
+						<input type="date" max="<?php echo date("Y-m-d"); ?>" name="Birthday" required>
+					</div>
+					<br>
+					<div>
+						Email:
+						<input type="email" placeholder="--------@email.com" name="Email" required>
+					</div>
+					<br>
+					<div>
+						Password:
+						<input type="password" placeholder="Enter Password" name="PWD" required>
+					</div>
+					<br>
+					<div>
+						<button role="submit">Save Changes</button>
+					</div>
+					</form>
+			      </div>
+			    </div>
+			  </div>
+			</div>
 					</div>
 					<!-- Post Container -->
 					<div class="col-md-8">
