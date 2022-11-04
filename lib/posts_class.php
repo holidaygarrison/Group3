@@ -31,7 +31,7 @@ class Posts
 		if( !$msg && !$img )
 			return FALSE;
 
-		$msg - htmlspecialchars($msg);
+		$msg = htmlspecialchars($msg);
 
 		$sql = "UPDATE posts SET ".($msg ? "Msg = '".$msg."'" : "").
 			($msg && $img ? ", " : "").

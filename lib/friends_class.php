@@ -63,6 +63,18 @@ class Friends
 
 		return $res;
 	}
+
+	static public function GetRequestInfo( $rid )
+	{
+		global $MHDB;
+		if( !$MHDB )
+			return FALSE;
+
+		$sql = "SELECt * FROM friendreq WHERE ID = '$rid'";
+		$res = $MHDB->query($sql)->fetch_assoc();
+
+		return $res;
+	}
 	
 
 }
