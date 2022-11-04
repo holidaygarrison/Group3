@@ -13,7 +13,6 @@ if( !$user || !$post || !$msg ){
 	exit;
 }
 
-
 Posts::MakeComment($user, $post, $msg);
 header("Location:./");
 exit;
