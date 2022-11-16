@@ -1,3 +1,4 @@
+<!-- This file creates the initial database structure -->
 <?php
 
 $servername = "localhost";
