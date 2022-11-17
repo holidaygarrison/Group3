@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 final class FriendsTest extends TestCase
 {
-
+	/* This tests to see if the friend request went through properly. */
 	public function testInitiateRequest()
 	{
 		$requestor = "TestUser1";
@@ -25,6 +25,7 @@ final class FriendsTest extends TestCase
 		$this->assertSame( $requestee, $info['Receiver'] );
 	}
 
+	/* This checks to make sure that the friend request went through to the correct friend. */
 	public function testCheckRequest()
 	{
 		$requestor = "TestUser1";
@@ -36,6 +37,7 @@ final class FriendsTest extends TestCase
 		$this->assertSame( 0, Friends::CheckRequest($requestee, $other) );
 	}
 
+	/* This tests to see that the friend request was right. */
 	public function testGetRequestsFor()
 	{
 		$requestor = "TestUser1";
@@ -47,6 +49,7 @@ final class FriendsTest extends TestCase
 		$this->assertSame( $requestor, $requests[0]['Sender'] );
 	}
 
+	/* This checks to make sure that friend was actually deleted. */
 	public function testDeleteRequestsFor()
 	{
 		$requestor = "TestUser1";
@@ -54,8 +57,4 @@ final class FriendsTest extends TestCase
 
 		$this->assertTrue(Friends::DeleteRequestsFor( $requestor, $requestee ));
 	}
-
-
-
-
 }
