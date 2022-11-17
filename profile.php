@@ -1,12 +1,14 @@
 <?php
+/* Include files needed for database, posts, accounts, and friends. */
 	include("inc/create_db.php");
 	include("lib/posts_class.php");
 	include("lib/accounts_class.php");
 	include("lib/friends_class.php");
-
+/* Include files needed for the header and structure of the page. */
 	include("inc/header.php");
 	include("inc/menu.php");
 
+/* Logs the user out if they have been gone for too long. */
 if( isset($_SESSION['user']) )
 {
 	$user = $_SESSION['user'];
@@ -22,11 +24,12 @@ if( isset($_GET['d']) )
 	$pro = $user;
 }
 
+/* Gets the account information from the database if it exists. */
 $profile = Accounts::GetAccountInfo($pro);
 $posts = Posts::GetPostsFor($pro);
 if( $posts )
 	array_multisort( array_column($posts, "ID"), SORT_DESC, $posts );
-
+/* If the account does not exist, will display an error. */
 if( !$profile ){
 	echo "<script>\n".
 	     " alert('Error: This person does not exist.');\n".
@@ -94,6 +97,7 @@ if( !$profile ){
                   </div>
                 </div>
               </div>
+	     <!-- Displays the user account information to the left side of their profile page. -->
               <div class="card mt-3">
                 <ul class="list-group list-group-flush">
 		    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
@@ -120,6 +124,7 @@ if( !$profile ){
 			<a class="list-group-link" href="#friendCollapse" data-bs-toggle="collapse" aria-expanded="false" role="button" aria-controls="friendCollapse"> Friend List</a>
 			<div class="w-100 collapse" id="friendCollapse">
 			    <ul>
+				<!-- Displays the number of friends the user has. -->    
 				<?php
 				    if( !$profile['Friends'] )
 					    echo "<li>No Friend :(</li>";
@@ -142,26 +147,6 @@ if( !$profile ){
 
             <!-- Post Container -->
 	    <div class="col-md-8">
-<!--
-              <div class="postContainer">
-                <div class="post create">
-                  <div class="top">
-                    <div class="image">
-                      <img src="img/profile_placeholder.jpg" alt="">
-                    </div>
-                    <input type="text" placeholder="What meme are we feeling today?"/>
-		 </div>
-                 <div class="bottom">
-                    <div class="action">
-                        <span>Image</span>
-                    </div>
-                    <div class="action">
-                        <span>Gif</span>
-                    </div>
-                 </div>
-	      </div>
--->
-
 		<div class="modal" tabindex="-1" id="ShareModal">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
@@ -183,7 +168,7 @@ if( !$profile ){
 		    </div>
 		  </div>
 		</div>
-
+		<!-- Allows the user to edit their posts. -->
 		<div class="modal" tabindex="-1" id="EditModal">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
@@ -206,7 +191,7 @@ if( !$profile ){
 		  </div>
 		</div>
 
-<!-- Edit Profile Details Modal -->	
+		<!-- Edit Profile Details Modal -->	
 			<div class="modal" tabindex="-1" id="EditProfile">
 			  <div class="modal-dialog">
 			    <div class="modal-content">
@@ -251,9 +236,7 @@ if( !$profile ){
 			  </div>
 			</div>
 
-
-
-	    <!-- Posts -->
+<!-- Posts -->
 <?php
     if( !$posts ){
 	echo "<div class='post'>\n".
@@ -384,7 +367,7 @@ include("inc/footer.php");
 						}
 						return Xttp;
 					}
-
+					<!-- Can delete the post from the account page. -->
 					document.getElementById("DeletePostBtn").addEventListener("click", function(event){ if( CheckDelete() ){ event.preventDefault();} });
 					function CheckDelete()
 					{
@@ -395,7 +378,7 @@ include("inc/footer.php");
 							return FALSE;
 						}
 					}
-
+					<!-- Can edit the post from the account page. -->
 					function EditPost( postID )
 					{
 						var modal = new bootstrap.Modal(document.getElementById("EditModal"));
@@ -419,7 +402,7 @@ include("inc/footer.php");
 						xttp.open("GET", "SetEdit.php?post="+postID, true);
 						xttp.send();
 					}
-
+					<!-- Can see the number of likes to the side. -->
 					function Like( postID )
 					{
 						const reqListener = response => {
@@ -432,7 +415,7 @@ include("inc/footer.php");
 						xttp.open("GET", "Like.php?post="+postID+"&user=<?php echo $user; ?>", true);
 						xttp.send();
 					}
-
+					<!-- Displays the number of dislikes in the users account. -->
 					function Dislike( postID )
 					{
 
@@ -447,7 +430,7 @@ include("inc/footer.php");
 						xttp.send();
 
 					}
-
+					<!-- Displays the shared posts in the account. -->
 					function Share( postID )
 					{
 						var modal = new bootstrap.Modal(document.getElementById("ShareModal"));
@@ -465,7 +448,7 @@ include("inc/footer.php");
 						xttp.open("GET", "SetShare.php?post="+postID, true);
 						xttp.send();
 					}
-
+					<!-- Allows the users to delete a comment from their account page. -->
 					function DeleteComment( commID )
 					{
 						if( confirm("Are you sure you want to delete this comment?") ){
