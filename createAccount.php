@@ -79,10 +79,12 @@
 		<br>
 		<br>
 		<div class="container">
+			<!-- Header -->
 			<img src="inc/Logo.png" alt="MemeHub">
 			<p class="logoFont">memehub</p>
 			<h1>Create an Account</h1>
 			<div>
+				<!-- Different fields of information the user adds. -->
 				<form name="Frm" action="createAccountPro.php" method = "post">
 					<div>
 						Username:
@@ -124,6 +126,7 @@
 					</div>
 				</form>
 				<div>
+				<!-- Goes back to the login page, since the user already has an account. -->
 				<a href="login.php">Already have an Account?</a>
 				</div>
 			</div>
