@@ -1,13 +1,13 @@
 <?php
+/* This controls the friend requests with the database. */
 class Friends
 {
+	/* A query is sent to the database for the requested accounts information. */
 	static public function InitiateRequest( $requestor, $requestee )
 	{
 		global $MHDB;
 		if( !$MHDB )
 			return FALSE;
-
-
 
 		$sql = "INSERT INTO friendreq (ID, Sender, Receiver, Date) VALUES (NULL, '".$requestor."', '".$requestee."', '".date("Y-m-d")."');";
 		$MHDB->query($sql);
@@ -17,6 +17,7 @@ class Friends
 		return $id;
 	}
 
+	/* This checks to make sure that the wanted account actually exists in the database. */
 	static public function CheckRequest( $requestor, $requestee )
 	{
 		global $MHDB;
@@ -37,6 +38,7 @@ class Friends
 
 	}
 
+	/* This deletes the certain friend request, therefore the user is no longer friends with that account. */
 	static public function DeleteRequestsFor( $u1id, $u2id )
 	{
 		global $MHDB;
@@ -49,6 +51,7 @@ class Friends
 		return TRUE;
 	}
 
+	/* This pulls the friends information to allow a friend request to go through. */
 	static public function GetRequestsFor( $uid )
 	{
 		global $MHDB;
@@ -64,6 +67,7 @@ class Friends
 		return $res;
 	}
 
+	/* This new friends account information will be linked to that user's account. */
 	static public function GetRequestInfo( $rid )
 	{
 		global $MHDB;
@@ -75,12 +79,6 @@ class Friends
 
 		return $res;
 	}
-	
-
 }
-
-
-
-
 
 ?>
