@@ -82,11 +82,13 @@
 		<br>
 		<br>
 		<br>
+		<!-- Login page -->
 		<div class="container">
 			<img src="inc/Logo.png" alt="MemeHub">
 			<p class="logoFont">memehub</p>
 			<h1>Login</h1>
 			<div>
+				<!-- Contains spot to enter username and password. -->
 				<form name="Frm" action="loginPro.php" method = "post">
 					<div>	
 						Username:
@@ -103,6 +105,7 @@
 						<button role="submit">Submit</button>
 				</form>
 			</div>
+			<!-- Directs you to the Create Account page if you do not have an account. -->
 			<a href="createAccount.php">Don't Have an Account?</a>
 		</div>
 	</body>
