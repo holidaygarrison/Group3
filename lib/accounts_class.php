@@ -1,6 +1,7 @@
 <?php
 class Accounts
 {
+	/* This is what sends the information from the Create Account page to the database. */
 	static public function CreateAccount( $uname, $pwd, $fname, $lname, $gen, $bday, $email )
 	{
 		global $MHDB;
@@ -18,6 +19,7 @@ class Accounts
 		return $id;
 	}
 
+	/* This is what pulls the needed information from the database to verify the inputted information is in the database. */
 	static public function GetAccountInfo( $id )
 	{
 		global $MHDB;
@@ -30,6 +32,7 @@ class Accounts
 		return $result;
 	}
 
+	/* Whatever the user changes in the edit profile popup will be updated to the database. */
 	static public function EditAccount( $info )
 	{
 		global $MHDB;
@@ -50,6 +53,7 @@ class Accounts
 		return TRUE;
 	}
 
+	/* This will retrieve all of the accounts in the database. */
 	static public function GetAllAccounts()
 	{
 		global $MHDB;
@@ -64,9 +68,9 @@ class Accounts
 		}
 
 		return $res;
-
 	}
 
+	/* This checks that the information from the database matches to the inputted username and password entered by the user to log in. */
 	static public function CheckPWD( $uname, $pwd )
 	{
 		global $MHDB;
@@ -83,6 +87,7 @@ class Accounts
 			return FALSE;
 	}
 
+	/* When the user selects to delete their account, this allows the user's information to be deleted from the database. */
 	static public function DeleteAccount( $uname )
 	{
 		global $MHDB;
@@ -98,8 +103,6 @@ class Accounts
 		//$MHDB->query($sql);
 
 		return TRUE;
-
-
 	}
 
 }
