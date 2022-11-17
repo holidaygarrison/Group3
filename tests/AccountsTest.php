@@ -9,8 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 final class AccountsTest extends TestCase
 {
-
-
+	/* This checks that the account was created correctly. */
 	public function testCreateAccount()
 	{
 		$uname = "TestUser";
@@ -25,7 +24,7 @@ final class AccountsTest extends TestCase
 		$this->assertEmpty( $info['Friends'] );
 	}
 
-
+	/* This checks to make sure the username and password are correct. */
 	public function testCheckPWD()
 	{
 		$uname = "TestUser";
@@ -34,12 +33,11 @@ final class AccountsTest extends TestCase
 		$this->assertTrue( Accounts::CheckPWD( $uname, $pwd ) );
 	}
 
+	/* This checks to make sure that account was deleted. */
 	public function testDeleteAccount()
 	{
 		$uname = "TestUser";
 
 		$this->assertTrue( Accounts::DeleteAccount( $uname ) );
 	}
-
-
 }
