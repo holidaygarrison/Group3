@@ -175,4 +175,17 @@
 		min-height: 1px;
 		padding: 1rem;
 	 }
+/* search.php */
+.backlight {
+	display: flex;
+	background: rgb(118, 209, 236);
+ }
 
+ .separation {
+	text-align: center;
+	background: rgb(240, 244, 245);
+	width: auto;
+	height: 80px;
+	border-bottom: 3px groove #1c87c9;
+	border-top: 3px groove #1c87c9;
+ }
