@@ -24,8 +24,9 @@
 		justify-content: center;
 		align-items: center;
 		background-color: FloralWhite ;
-		width: 25%;
-		height: 80%;
+		width: max-content;
+		height: max-content;
+		padding: 35px;
 		margin: auto;
 		border: 5px solid black;
 		border-radius: 15px;
@@ -64,6 +65,14 @@
 		border-radius: 4px;
 		box-sizing: border-box;
 	}
+
+	 /* Date of birth option container */
+	 .dob {
+		text-align: center;
+		padding: 2px;
+		min-height: max-content;
+		min-width: max-content;
+	 }
 
 /* menu.php */
 	/* Image of the logo at top left */

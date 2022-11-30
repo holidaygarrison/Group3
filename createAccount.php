@@ -37,7 +37,7 @@
 	<br>
 	<div>
 		Date of Birth:
-		<input type="date" max="<?php echo date("Y-m-d"); ?>" name="Birthday" required>
+		<input class = "dob" type="date" max="<?php echo date("Y-m-d"); ?>" name="Birthday" required>
 	</div>
 	<br>
 	<div>
