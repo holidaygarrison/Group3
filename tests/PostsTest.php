@@ -1,32 +1,15 @@
 <?php
 
-//namespace holidaygarrison\testproject;
 include( "/mnt/c/xampp/htdocs/software_engineering/inc/create_db.php" );
 include( "/mnt/c/xampp/htdocs/software_engineering/lib/posts_class.php" );
+include( "/mnt/c/xampp/htdocs/software_engineering/lib/accounts_class.php" );
+include( "/mnt/c/xampp/htdocs/software_engineering/lib/friends_class.php" );
 
 use PHPUnit\Framework\TestCase;
 
 final class PostsTest extends TestCase
 {
 
-	/*
-	public function testGetPostInfo()
-	{
-		$post = Posts::GetPostInfo( 1 );
-
-		$this->assertSame( "1", $post['ID']);
-		$this->assertSame( "2000-01-01", $post['Date'] );
-		$this->assertSame( "testuser", $post['User'] );
-		$this->assertSame( "testmsg", $post['Msg']);
-		$this->assertSame( "testimg", $post['Img']);
-		$this->assertSame( "testlike1,testlike2", $post['Likes'] );
-		$this->assertSame( "testdislike1", $post['Dislikes'] );
-		$this->assertSame( NULL, $post['Share'] );
-
-	}
-	 */
-
-	/* Tests to make sure that the post was created. */
 	public function testCreatePost()
 	{
 		$user = "testuser";
@@ -48,7 +31,6 @@ final class PostsTest extends TestCase
 
 	}
 
-	/* This checks to make sure the post updated into the database correctly. */
 	public function testEditPost()
 	{
 		$id = Posts::GetPostsFor("testuser");
@@ -74,7 +56,7 @@ final class PostsTest extends TestCase
 
 	}
 
-	/* This tests to make sure the number of likes on a post are correct. */
+
 	public function testLikePost()
 	{
 		$id = Posts::GetPostsFor("testuser");
@@ -91,7 +73,6 @@ final class PostsTest extends TestCase
 		
 	}
 
-	/* This checks to make sure that the post was shared properly. */
 	public function testSharePost()
 	{
 		$id = Posts::GetPostsFor("testuser");
@@ -109,7 +90,6 @@ final class PostsTest extends TestCase
 		
 	}
 
-	/* This checks to make sure that the comments were created properly. */
 	public function testMakeComment()
 	{
 		$uname = "testuser";
@@ -128,7 +108,7 @@ final class PostsTest extends TestCase
 
 	}
 
-	/* This checks to make sure that post was actually deleted. */
+	
 	public function testDeletePost()
 	{
 		$id = Posts::GetPostsFor("testuser");
@@ -140,4 +120,7 @@ final class PostsTest extends TestCase
 		$this->assertEmpty( $post );
 		$this->assertEmpty( Posts::GetCommentsForPost( $id ) );
 	}
+
+
+
 }

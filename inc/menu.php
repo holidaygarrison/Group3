@@ -1,16 +1,13 @@
 <?php session_start(); $reqs = Friends::GetRequestsFor($_SESSION['user']); ?>
-<!-- This is the top navigation bar with the logo and dropdown menus that are used to navigate through the site. -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <!-- This is the left side of the header with the logo, Home, and Friend Request drop down menus -->
   <div class="container-fluid">
     <a class="navbar-brand" href="">
-      <img src="inc/Logo.png" alt="MemeHub"> 
+      <img src="inc/Logo.png" alt="MemeHub" style="max-height:40px">
       <span class="logoFont">memehub</span>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <!-- This is the right side of the header navigation bar with the dropdown menu of the user's profile or choice to log out. -->
     <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
@@ -25,7 +22,26 @@
 	  ?>
 	  </a>
 	</li>
+<!--
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+	</li>
+-->
       </ul>
+
+      <form class="d-flex align-items-center" method='get' action='search.php'>
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name='search'>
+        <button class="btn btn-outline-success py-2 px-3" type="submit">Search</button>
+      </form>
+
       <ul class="navbar-nav mb-2 mb-lg-0">
 	<li class="nav-item dropdown">
 	  <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" araia-expanded="false">
@@ -36,11 +52,13 @@
 	    <li><a class="dropdown-item" href="logout.php">Log Out</a></li>
 	  </ul>
 	</li>
+
       </ul>
+
     </div>
   </div>
 </nav>
-<!-- Pop up for the Friend Requests, showing if you have any or not. -->
+
 <div class="modal" tabindex="-1" id="FriendsModal">
   <div class="modal-dialog">
     <div class="modal-content">
