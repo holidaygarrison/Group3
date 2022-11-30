@@ -1,0 +1,6 @@
+New Requirements:
+1. Search functionality:
+    * An account holidng user will be able to search for another user by username or search for a post by the contents of that post
+
+2. Hashtagging:
+    * Users are able to tag their posts with a hashtag (i.e. #example). Clicking a hashtag within a post will take the user to a page of other posts with the same hashtag

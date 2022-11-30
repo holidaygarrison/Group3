@@ -1,0 +1,12 @@
+* search for users and posts (specify which) <- full requirement
+
+
+* scroll down and populate posts ?
+* dynamic refresh ? refresh page after x minute interval
+
+
+* no user-stories or anything
+
+
+
+* don't care about github anymore
