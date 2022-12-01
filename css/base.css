@@ -116,6 +116,7 @@
 	 .modal-header {
 		background:rgb(248, 234, 220);
 	 }
+	 
 	/* Buttons of each post */
 	 .btn-md {
 		background:rgb(248, 234, 220);
@@ -211,6 +212,12 @@
 		//height:3px;
 	}
 
+	.modal-body {
+		display: flex;
+		align-content: center;
+		justify-content: center;
+	 }
+
 /* login.php */
 	/* Background */
 	.main-body {
@@ -251,12 +258,13 @@
 	input {
 	   border: 2px solid #ccc;
 	   font-weight: 100;
-	   padding: 20px;
-	   height:40px;
+	   padding: 10px;
+	   min-height: min-content;
 	   margin: 5px;
 	   border-radius:25px;
 	   border: 2px solid #ccc;
-	   background:#eee;          
+	   background:#eee;  
+	   text-align: center;        
 	}
 	/* Submit Button */
 	.btn-md {
