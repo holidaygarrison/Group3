@@ -7,4 +7,8 @@
 
      use PHPUnit\Framework\TestCase;
      
+     final class PostsTest extends TestCase
+     {
+     
+     }
 ?>
