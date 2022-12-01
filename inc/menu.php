@@ -1,7 +1,7 @@
 <?php session_start(); $reqs = Friends::GetRequestsFor($_SESSION['user']); ?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="">
+    <a class="navbar-brand" href="./index.php">
       <img src="inc/Logo.png" alt="MemeHub" style="max-height:40px">
       <span class="logoFont">memehub</span>
     </a>
