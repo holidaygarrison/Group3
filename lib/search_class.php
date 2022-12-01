@@ -40,6 +40,7 @@ class Search
 
 		$res = [];
 		while( $row = $result->fetch_assoc() ){
+			$row['PlainMsg'] = $row['Msg'];
 			$row['Msg'] = Posts::TagPost($row['Msg']);
 			$res[] = $row;
 		}
@@ -60,11 +61,12 @@ class Search
 		$sql = "SELECT * FROM posts WHERE ".
 			"Msg LIKE '".$tag."' OR ".
 			"Msg LIKE '".$tag." %' OR ".
-			"MSg LIKE '".$tag."#%'";
+			"Msg LIKE '".$tag."#%'";
 		$result = $MHDB->query($sql);
 
 		$res = [];
 		while( $row = $result->fetch_assoc() ){
+			$row['PlainMsg'] = $row['Msg'];
 			$row['Msg'] = Posts::TagPost($row['Msg']);
 			$res[] = $row;
 		}

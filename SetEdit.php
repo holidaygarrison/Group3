@@ -6,6 +6,6 @@ include("lib/posts_class.php");
 $post = $_GET['post'];
 
 $post = Posts::GetPostInfo($post);
-echo $post['Msg']."-;;-".$post['Img'];
+echo $post['PlainMsg']."-;;-".$post['Img'];
 
 ?>
