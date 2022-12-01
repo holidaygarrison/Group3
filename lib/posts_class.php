@@ -73,7 +73,10 @@ class Posts
 		$sql = "SELECT * FROM posts WHERE ID = '$pid'";
 		$result = $MHDB->query($sql)->fetch_assoc();
 
-		$result['Msg'] = self::TagPost($result['Msg']);
+		if( $result ){
+			$result['PlainMsg'] = $result['Msg'];
+			$result['Msg'] = self::TagPost($result['Msg']);
+		}
 
 		return $result;
 	}
@@ -126,6 +129,7 @@ class Posts
 		$result = $MHDB->query($sql);
 		$res = [];
 		while($row = $result->fetch_assoc()){
+			$row['PlainMsg'] = self::TagPost($row['Msg']);
 			$row['Msg'] = self::TagPost($row['Msg']);
 			$res[] = $row;
 		}
